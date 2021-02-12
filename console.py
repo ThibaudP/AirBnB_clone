@@ -35,6 +35,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """Creates an instance of <class>: CREATE <class>"""
         args = shlex.split(arg)
+        models.storage.reload()
         if len(args) < 1:
             print("** class name missing **")
             return False
@@ -49,6 +50,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arg):
         """Shows an instance of a class: SHOW <class> <id>"""
         args = shlex.split(arg)
+        models.storage.reload()
         if len(args) < 1:
             print("** class name missing **")
             return False
@@ -68,6 +70,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """Shows all instances, or all instances from a class: ALL (<class>)"""
         args = shlex.split(arg)
+        models.storage.reload()
         objects = []
         if len(args) < 1:
             for obj in models.storage.all().values():
@@ -83,8 +86,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_destroy(self, arg):
-        """Deletes an instance based on <class> and <id>: DESTROY <class> <id>"""
+        """Deletes an instance based on class and id: DESTROY <class> <id>"""
         args = shlex.split(arg)
+        models.storage.reload()
         if len(args) < 1:
             print("** class name missing **")
             return False
@@ -106,6 +110,7 @@ class HBNBCommand(cmd.Cmd):
         """Updates an instance base on <class>, <id>, <attribute> & <value>:\
         UPDATE <class> <id> <attribute> \"<value>\""""
         args = shlex.split(arg)
+        models.storage.reload()
         if len(args) < 1:
             print("** class name missing **")
             return False
@@ -140,9 +145,44 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
+    def count(self, arg):
+        """Counts the number of instances of a class"""
+        args = shlex.split(arg)
+        models.storage.reload()
+        if len(args) < 1:
+            print("** class name missing **")
+            return False
+        elif args[0] in classes:
+            count = models.storage.all().keys()
+            print(len(count))
+        else:
+            print("** class doesn't exist **")
+            return False
 
+    def default(self, line):
+        """Changes the default behavior to add <class>.func() behavior"""
+        classes = {"Amenity": Amenity, "BaseModel": BaseModel,
+                   "City": City, "Place": Place, "Review": Review,
+                   "State": State, "User": User}
+        funcs = {"all": self.do_all, "count": self.count,
+                 "create": self.do_create, "show": self.do_show,
+                 "destroy": self.do_destroy, "update": self.do_update}
 
-
+        print("line: {}".format(line))
+        cmd = line.split('.', 1)
+        print("cmd: {}".format(cmd))
+        class_name = cmd[0]
+        args = cmd[1].strip("()").split('(')
+        print("args: {}".format(args))
+        if args[0] in funcs:
+            func = funcs[args[0]]
+            if len(args) > 1:
+                params = "{} {}".format(class_name, args[1].replace(',', ''))
+            else:
+                params = class_name
+            func(params)
+        else:
+            print("*** Unknown syntax: {}".format(line))
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
