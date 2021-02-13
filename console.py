@@ -161,19 +161,13 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, line):
         """Changes the default behavior to add <class>.func() behavior"""
-        classes = {"Amenity": Amenity, "BaseModel": BaseModel,
-                   "City": City, "Place": Place, "Review": Review,
-                   "State": State, "User": User}
         funcs = {"all": self.do_all, "count": self.count,
                  "create": self.do_create, "show": self.do_show,
                  "destroy": self.do_destroy, "update": self.do_update}
 
-        print("line: {}".format(line))
         cmd = line.split('.', 1)
-        print("cmd: {}".format(cmd))
         class_name = cmd[0]
         args = cmd[1].strip("()").split('(')
-        print("args: {}".format(args))
         if args[0] in funcs:
             func = funcs[args[0]]
             if len(args) > 1:
@@ -183,6 +177,7 @@ class HBNBCommand(cmd.Cmd):
             func(params)
         else:
             print("*** Unknown syntax: {}".format(line))
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
