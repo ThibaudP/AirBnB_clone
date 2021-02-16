@@ -181,7 +181,6 @@ class HBNBCommand(cmd.Cmd):
                         upd_dict = ast.literal_eval(str_dict)
                         params += args[1].split(',', 1)[0] + ' '
                         print(params)
-                        # print(upd_dict)
                         for k, v in upd_dict.items():
                             final_params = '{} "{}" "{}"'.format(params,
                                                                  str(k),
@@ -192,7 +191,6 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         params += args[1].replace(',', '').replace(':', '')
                         params = params.replace('{', '').replace('}', '')
-                        # print(params)
                 else:
                     params += args[1].replace(',', '')
             func(params)
