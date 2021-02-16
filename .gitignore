@@ -3,4 +3,6 @@ __pycache__
 models/__pycache__
 models/engine/__pycache__
 *.pyc
-test_*
+test_base_model_dict.py
+test_base_model.py
+test_save_reload_base_model.py
