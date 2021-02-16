@@ -3,6 +3,8 @@
 import cmd
 import shlex
 import models
+import json
+import ast
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
@@ -170,10 +172,29 @@ class HBNBCommand(cmd.Cmd):
         args = cmd[1].strip("()").split('(')
         if args[0] in funcs:
             func = funcs[args[0]]
+            params = class_name + ' '
             if len(args) > 1:
-                params = "{} {}".format(class_name, args[1].replace(',', ''))
-            else:
-                params = class_name
+                if args[0] == "update":
+                    if (args[1][-1] == '}'):
+                        # If the last char of params is a } then it's a dict
+                        str_dict = args[1].split(' ', 1)[1]
+                        upd_dict = ast.literal_eval(str_dict)
+                        params += args[1].split(',', 1)[0] + ' '
+                        print(params)
+                        # print(upd_dict)
+                        for k, v in upd_dict.items():
+                            final_params = '{} "{}" "{}"'.format(params,
+                                                                 str(k),
+                                                                 str(v))
+                            print("final params: " + final_params)
+                            func(final_params)
+                        return
+                    else:
+                        params += args[1].replace(',', '').replace(':', '')
+                        params = params.replace('{', '').replace('}', '')
+                        # print(params)
+                else:
+                    params += args[1].replace(',', '')
             func(params)
         else:
             print("*** Unknown syntax: {}".format(line))
