@@ -25,6 +25,7 @@ To run the console, launch `./console.py` in your favorite shell.
 
 All previous commands are also available under the format `<class>.cmd(params)`:
 
+| Command | Description                                                                                                                              | Example                                                      |
 | create() | Creates a new instance of a class, serializes it to the JSON file and prints its id | `(hbnb) <class>.create()` |
 | show() | Prints the string representation of an instance based on the class name and id | `(hbnb) <class>.show("<id>")` |
 | destroy() | Permanently deletes an instance based on the class name and id (from working memory + from JSON) | `(hbnb) <class>.destroy("<id>")` |
@@ -34,6 +35,7 @@ All previous commands are also available under the format `<class>.cmd(params)`:
 
 Additionnally, an exclusive `<class>.count()` function can be called only from its class name:
 
+| Command | Description                                                                                                                              | Example                                                      |
 | count() | Show the number of instance created | `(hbnb) <class>.count()` |
 
 ## Examples
