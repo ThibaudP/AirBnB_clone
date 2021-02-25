@@ -1,4 +1,4 @@
-.filters {
+section.filters {
   background-color: white;
   height: 70px;
   width: 100%;
@@ -8,7 +8,7 @@
   margin: 0 auto;
 }
 
-.filters button {
+section.filters button {
   background-color: #ff5a5f;
   font-size: 18px;
   color: #ffffff;
@@ -22,6 +22,6 @@
   transform: translateY(-50%);
 }
 
-.filters button:hover {
+section.filters button:hover {
   opacity: 0.9;
 }
