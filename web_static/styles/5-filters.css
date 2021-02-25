@@ -8,6 +8,31 @@
   margin: 0 auto;
 }
 
+.filters h3 {
+    font-weight: 400;
+    /* margin-top: 0;  */
+}
+
+.filters h4 {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.filters .locations {
+    height: 100%;
+    width: 25%;
+    border-right: 1px solid #dddddd;
+    display: inline-block
+}
+
+.filters .amenities {
+    height: 100%;
+    width: 25%;
+    display: inline-block;
+}
+
+
+
 .filters button {
   background-color: #ff5a5f;
   font-size: 18px;
