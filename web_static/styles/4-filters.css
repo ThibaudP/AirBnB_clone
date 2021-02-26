@@ -1,14 +1,14 @@
-section.filters {
+.container .filters {
   background-color: white;
   height: 70px;
   width: 100%;
   border: 1px solid #dddddd;
   border-radius: 4px;
   position: relative;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
-section.filters button {
+.container .filters button {
   background-color: #ff5a5f;
   font-size: 18px;
   color: #ffffff;
@@ -22,6 +22,6 @@ section.filters button {
   transform: translateY(-50%);
 }
 
-section.filters button:hover {
+.container .filters button:hover {
   opacity: 0.9;
 }
