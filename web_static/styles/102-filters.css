@@ -9,8 +9,6 @@
   margin: 0 auto;
 }
 
-
-
 .filters .locations,
 .filters .amenities {
   height: 100%;
@@ -23,8 +21,6 @@
 .filters .locations {
   border-right: 1px solid #dddddd;
 }
-
-
 
 .filters h3 {
   font-weight: 600;
@@ -98,41 +94,43 @@
 }
 
 @media screen and (max-width: 768px) {
-    .filters {
-        flex-flow: column;
-        width: 390px;
-        height: 150px;
-        padding: 0px;
-    }
+  .filters {
+    flex-flow: column;
+    width: 390px;
+    height: 500px;
+    padding: 0px;
+    padding-top: 20px;
+  }
 
-    .filters .locations,
-    .filters .amenities {
-        border-right: 0px;
-        width: 100%;
-    }
+  .filters .locations,
+  .filters .amenities {
+    border-right: 0px;
+    width: 100%;
+  }
 
-    .filters .locations {
-        border-bottom: 1px solid #dddddd;
-    }
+  .filters .locations {
+    border-bottom: 1px solid #dddddd;
+  }
 
-    .filters button {
-        position: relative;
-        top: 0;
-        right: 0;
-        transform: translateY(0);
-        margin: 5px auto 10px auto;
-        width: 80%;
-        padding: 10px;
-    }
+  .filters button {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: translateY(0);
+    margin: 5px auto 10px auto;
+    width: 80%;
+    padding: 10px;
+  }
 
-    .filters .popover {
-        display: none;
-        position: relative;
-        background-color: #fafafa;
-        border: 1px solid #dddddd;
-        border-radius: 4px;
-        width: inherit;
-        /* top: 100%; */
-        /* z-index: 1; */
-      }
+  .filters ul.popover {
+    display: block;
+    position: relative;
+    top: 20px;
+    background-color: #fafafa;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    width: inherit;
+    padding: 20px 0 20px 0;
+    /* z-index: 1; */
+  }
 }
