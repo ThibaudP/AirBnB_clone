@@ -16,7 +16,7 @@
   padding: 20px;
   border: #ff5a5f 1px solid;
   border-radius: 4px;
-  text-align: center;
+  text-align: left;
   align-items: center;
   flex-direction: column;
   display: flex;
@@ -34,10 +34,15 @@
   min-width: 60px;
   height: 60px;
   font-size: 30px;
+  text-align: center;
   align-self: flex-end;
   line-height: 60px;
   margin-top: -45px;
   padding: 5px;
+}
+
+.places article .user .label {
+    font-weight: 600;
 }
 
 .places article .information {
@@ -58,6 +63,13 @@
     margin: 5px;
 }
 
+.places article .information .max_guest,
+.places article .information .number_rooms,
+.places article .information .number_bathrooms {
+    text-align: center;
+    padding-top: 0px;
+}
+
 .places article .information .max_guest {
   background: url("../images/icon_group.png") no-repeat top content-box;
 }
@@ -73,7 +85,7 @@
 .places article .user,
 .places article .description {
   align-self: flex-start;
-  text-align: center;
+  text-align: left;
   padding: 5px 0px;
   width: inherit;
 }

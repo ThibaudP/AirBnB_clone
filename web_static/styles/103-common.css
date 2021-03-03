@@ -3,22 +3,28 @@
   padding: 0;
 }
 
-html {
-  height: 100vh;
-}
-
 body {
   margin: 0;
   padding: 0;
   color: #484848;
   font-size: 14px;
   font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  min-height: 100vh;
-  position: relative;
 }
 
 div.container {
   margin: 30px auto;
   max-width: 1000px;
   padding-bottom: 80px;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+    }
 }

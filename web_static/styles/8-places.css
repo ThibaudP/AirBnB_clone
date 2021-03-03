@@ -58,6 +58,13 @@
     margin: 5px;
 }
 
+.places article .information .max_guest,
+.places article .information .number_rooms,
+.places article .information .number_bathrooms {
+    text-align: center;
+    padding-top: 0px;
+}
+
 .places article .information .max_guest {
   background: url("../images/icon_group.png") no-repeat top content-box;
 }
@@ -73,7 +80,7 @@
 .places article .user,
 .places article .description {
   align-self: flex-start;
-  text-align: center;
+  text-align: left;
   padding: 5px 0px;
   width: inherit;
 }
